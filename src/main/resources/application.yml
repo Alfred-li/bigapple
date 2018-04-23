@@ -5,7 +5,7 @@ spring:
 spring:
   profiles: local
   datasource:
-     jdbc-url: jdbc:mysql://dohko.mysql.001.master.hualala.com:3306/db_yaoqianshu?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useAffectedRows=true
+     jdbc-url: jdbc:mysql://dohko.mysql.001.master.hualala.com:3306/111?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useAffectedRows=true
      username: root
      password: hualaladev
      driver-class-name: com.mysql.jdbc.Driver
