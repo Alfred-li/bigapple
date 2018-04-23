@@ -1,0 +1,18 @@
+spring:
+  profiles.active: local
+
+---
+spring:
+  profiles: local
+  datasource:
+     jdbc-url: jdbc:mysql://dohko.mysql.001.master.hualala.com:3306/db_yaoqianshu?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useAffectedRows=true
+     username: root
+     password: hualaladev
+     driver-class-name: com.mysql.jdbc.Driver
+     initial-size: 3
+     max-active: 20
+     min-idle: 2
+     validation-query: SELECT 1
+
+server.port: 80
+
