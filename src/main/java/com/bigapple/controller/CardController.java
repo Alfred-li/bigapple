@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/card/")
+@RequestMapping("/api/card/")
 public class CardController {
 
     @Autowired
