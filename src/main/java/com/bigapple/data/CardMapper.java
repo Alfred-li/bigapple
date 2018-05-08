@@ -1,6 +1,7 @@
 package com.bigapple.data;
 
 import com.bigapple.model.CardInfo;
+import com.bigapple.model.Dao;
 import org.apache.ibatis.annotations.*;
 
 import java.sql.Timestamp;
@@ -38,12 +39,12 @@ public interface CardMapper {
 
     /**
      * 用户和卡关系表入库
-     * @param cardID
-     * @param token
+     * @param dao
      * @return
      */
-    @Insert(" INSERT INTO C (card_id, token) VALUES (#{cardID}, #{token}) ")
-    int insertCardUserRelation(@Param("cardID") long cardID, @Param("token") String token);
+    @Insert(" INSERT INTO C (card_id, token) VALUES (#{dao.cardID}, #{dao.token}) ")
+    @Options(useGeneratedKeys=true, keyProperty="dao.id", keyColumn="id")
+    int insertCardUserRelation(@Param("dao") Dao dao);
 
     /**
      * 更新卡的状态
@@ -65,8 +66,8 @@ public interface CardMapper {
      * 更新用户信息
      * @return
      */
-    @Update(" UPDATE C SET address = #{address}, except_date = #{date} WHERE id = #{id} AND token = #{token} AND action = 0 ")
-    int updateUserInfo(@Param("date") Timestamp timestamp, @Param("token") String token, @Param("id") long id, @Param("address") String address);
+    @Update(" UPDATE C SET phone=#{phone}, name = #{name}, address = #{address}, except_date = #{date} WHERE id = #{id} AND token = #{token} AND action = 0 ")
+    int updateUserInfo(@Param("phone") String phone, @Param("name") String name, @Param("date") Timestamp timestamp, @Param("token") String token, @Param("id") long id, @Param("address") String address);
 
     /**
      * 更新卡的完成状态
